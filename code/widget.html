@@ -1,24 +1,59 @@
 <style>
     #cookie-banner {
- width: 100%;
- text-align: center;
- color:white;
-}
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
 
-#accept-cookies {
- border: none;
- text-align: center;
- text-decoration: none;
- cursor: pointer;
-}
+    #accept-cookies {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-#cookie-banner a {
- color: wheat;
-}
+    #cookie-banner a {
+        color: wheat;
+    }
 
+    .accept {
+        transition: transform .5s;
+        transform: translateX(100%);
+    }
+    
+    .reject {
+        transition: transform .5s; 
+        transform: translateX(-100%);
+    }
+    
+    button {
+        border: none;
+        border-radius: 0px;
+        font-size: 16px;
+        padding: 5px;
+        width: 90px;
+        margin: 0px 18px 0px 0px
+    }
 </style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+        $('#accept-cookies').click(function(){
+            $('#cookies-container').addClass('accept');
+        });
+        
+        $('#reject-cookies').click(function(){
+            $('#cookies-container').addClass('reject');
+        });
+    });
+</script>
+
+
 
 <div id="cookie-banner">
  <p>We use cookies to ensure you get the best experience on our website. <a href="/privacy-policy">Learn More</a></p>
+ <button id="reject-cookies">Reject</button>
  <button id="accept-cookies">Accept</button>
 </div>
