@@ -1,65 +1,38 @@
-## Cookie Banner Widget for Elementor
+# Cookie Consent Widget for Elementor
 
-This is a simple Cookie Banner widget designed for use with Elementor, a popular WordPress page builder. This widget displays a banner at the top of your website, informing users about the use of cookies and providing a link to the privacy policy. Users can accept cookies by clicking the "Accept" button.
+This repository contains a simple and customizable Cookie Consent widget designed for integration with Elementor, a popular WordPress page builder. The widget displays a banner to inform users about the use of cookies on your website and allows them to accept or reject cookies.
 
-### Installation:
+## Features
 
-1. **Download Widget JSON:**
-   - Download the JSON file containing the widget configuration.
+- **Responsive Design:** The widget is designed to be responsive and adapts to different screen sizes.
+- **Customizable Styling:** Easily customize the appearance of the cookie banner to match your website's design.
+- **Cookie Management:** The widget uses JavaScript to manage user cookie consent, storing the information in the browser's cookies.
 
-2. **Import Widget to Elementor:**
-   - Log in to your WordPress admin dashboard.
-   - Navigate to the page where you want to add the Cookie Banner using Elementor.
-   - Edit the page with Elementor.
-   - Click on the folder icon in the Elementor panel to access the templates.
-   - Select "Import Templates."
-   - Upload the downloaded JSON file.
+## Getting Started
 
-3. **Adjust Settings:**
-   - After importing, you can customize the widget settings using the Elementor editor.
-   - Modify text, colors, and other styles as needed to match your website's design.
+To integrate this Cookie Consent widget into your Elementor-powered WordPress website, follow these steps:
 
-### Widget Styling (CSS):
+1. **Download the Repository:**
+   Clone or download the repository to your local machine.
 
-The provided CSS styles control the appearance of the Cookie Banner. You can customize these styles to fit your website's theme:
+2. **Import .json File to Elementor:**
+   - Navigate to your WordPress dashboard.
+   - Go to the Elementor editor for the page where you want to add the Cookie Consent widget.
+   - Import the provided `.json` file into Elementor to load the widget.
 
-```css
-#cookie-banner {
-    width: 100%;
-    text-align: center;
-    color: white;
-}
+3. **Customize as Needed:**
+   - Adjust the styles and content of the cookie banner to fit your website's design and preferences.
+   - Modify the behavior of the widget by updating the JavaScript functions as necessary.
 
-#accept-cookies {
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
+4. **Ensure Privacy Policy Link is Correct:**
+   - Update the link in the banner to point to your website's privacy policy.
 
-#cookie-banner a {
-    color: wheat;
-}
-```
+## Caution
 
-Feel free to adjust the width, colors, and other properties according to your preferences.
+This repository includes a `.json` file that can be imported into Elementor. Ensure that you have Elementor installed and activated on your WordPress site before attempting to import the file.
 
-### Usage:
+## Important Note
 
-1. **Text Customization:**
-   - Change the text inside the `<p>` tag to communicate your cookie usage policy effectively.
+Before deploying this Cookie Consent widget on your live website, make sure to comply with relevant privacy regulations in your jurisdiction. Additionally, consider consulting legal advice to ensure your website's cookie usage and privacy practices align with applicable laws.
 
-2. **Privacy Policy Link:**
-   - Update the `href` attribute of the `<a>` tag to link to your privacy policy page.
-
-3. **Button Text:**
-   - If you prefer a different text for the acceptance button, modify the text inside the `<button>` tag.
-
-### Important Note:
-
-Make sure to comply with privacy regulations and guidelines when using cookies on your website. Provide accurate and comprehensive information about your cookie usage in the privacy policy.
-
-**Disclaimer:**
-This widget is a basic example, and additional functionality may be required based on your specific website requirements and local privacy laws.
-
-Feel free to reach out for further customization or support.
+Feel free to explore and enhance this Cookie Consent widget to better suit your website's needs. If you encounter any issues or have suggestions for improvements, please open an issue or contribute to the repository.
