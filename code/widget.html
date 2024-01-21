@@ -5,55 +5,98 @@
         color: white;
     }
 
-    #accept-cookies {
+    #accept-cookies, #reject-cookies {
         border: none;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
+        border-radius: 0;
+        font-size: 16px;
+        padding: 5px;
+        width: 90px;
+        margin: 0 18px 0 0;
     }
 
     #cookie-banner a {
         color: wheat;
     }
 
+    .accept, .reject {
+        transition: transform 0.5s;
+        width: 100%;
+    }
+
     .accept {
-        transition: transform .5s;
         transform: translateX(100%);
     }
-    
+
     .reject {
-        transition: transform .5s; 
         transform: translateX(-100%);
-    }
-    
-    button {
-        border: none;
-        border-radius: 0px;
-        font-size: 16px;
-        padding: 5px;
-        width: 90px;
-        margin: 0px 18px 0px 0px
     }
 </style>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    jQuery(document).ready(function($) {
-        $('#accept-cookies').click(function(){
+    function setCookie(cname, cvalue, exdays) 
+    {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function deleteCookie(cname) 
+    {
+        const d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=;" + expires + ";path=/";
+    }
+
+    function getCookie(cname) 
+    {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function acceptCookieConsent() 
+    {
+        deleteCookie('user_cookie_consent');
+        setCookie('user_cookie_consent', 1, 30);
+    }
+    
+    
+    
+
+    let cookie_consent = getCookie("user_cookie_consent");
+    if (cookie_consent !== "") {
+        document.getElementById("cookies-container").style.display = "none";
+    } else {
+        document.getElementById("cookies-container").style.display = "block";
+    }
+
+    jQuery(document).ready(function ($) {
+        $('#accept-cookies').click(function () {
             $('#cookies-container').addClass('accept');
+            acceptCookieConsent();
         });
-        
-        $('#reject-cookies').click(function(){
+
+        $('#reject-cookies').click(function () {
             $('#cookies-container').addClass('reject');
         });
     });
 </script>
 
-
-
 <div id="cookie-banner">
- <p>We use cookies to ensure you get the best experience on our website. <a href="/privacy-policy">Learn More</a></p>
- <button id="reject-cookies">Reject</button>
- <button id="accept-cookies">Accept</button>
+    <p>We use cookies to ensure you get the best experience on our website. <a href="/privacy-policy">Learn More</a></p>
+    <button id="reject-cookies">Reject</button>
+    <button id="accept-cookies">Accept</button>
 </div>
